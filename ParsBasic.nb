@@ -1,0 +1,164 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6034,        154]
+NotebookOptionsPosition[      5558,        138]
+NotebookOutlinePosition[      5986,        155]
+CellTagsIndexPosition[      5943,        152]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[Alpha]0", ",", "\[Alpha]1", ",", "\[Alpha]2", ",", "\[Phi]", ",", 
+       "\[Delta]", ",", "\[Kappa]"}], "}"}], "=", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"2000", " ", "200000"}], ",", 
+       RowBox[{"2000", " ", "200000"}], ",", "0.03", ",", "0.03", ",", 
+       "0.8"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"pa", "=", 
+     RowBox[{"Flatten", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"set", "=", "1"}], " ", ",", 
+        RowBox[{"index", "=", "1"}], ",", 
+        RowBox[{"input", "=", 
+         RowBox[{"\"\<../InputFiles/SetInfo\>\"", "<>", "thresh", "<>", 
+          RowBox[{"ToString", "[", "sq", "]"}], "<>", "\"\<.csv\>\""}]}], ",", 
+        RowBox[{"pfile", "=", 
+         RowBox[{"\"\<../InputFiles/NeighList1k005t\>\"", "<>", 
+          RowBox[{"ToString", "[", "sq", "]"}], "<>", "\"\<.csv\>\""}]}], ",", 
+        RowBox[{"pEdgefile", "=", 
+         RowBox[{"\"\<../InputFiles/NeighLengths\>\"", "<>", "thresh", "<>", 
+          RowBox[{"ToString", "[", "sq", "]"}], "<>", "\"\<.csv\>\""}]}], ",", 
+        RowBox[{"recpat", "=", "1"}], ",", 
+        RowBox[{"interval", "=", "1"}], ",", 
+        RowBox[{"tstart", "=", 
+         RowBox[{"29", " ", "365"}]}], ",", 
+        RowBox[{"maxT", "=", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"33", "+", "12"}], ")"}], "365"}]}], ",", 
+        RowBox[{"recfreq", "=", 
+         RowBox[{"6", " ", "365"}]}], ",", 
+        RowBox[{"recstart", "=", "0"}], ",", 
+        RowBox[{"recend", "=", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"33", "+", "16"}], ")"}], "365"}]}], ",", 
+        RowBox[{"NumRuns", "=", "1"}], ",", 
+        RowBox[{"drivertime", "=", "dt"}], ",", 
+        RowBox[{"driverstart", "=", 
+         RowBox[{"32", " ", "365"}]}], ",", 
+        RowBox[{"driverend", "=", 
+         RowBox[{"33", " ", "365"}]}], ",", 
+        RowBox[{"NumDriver", "=", "1000"}], ",", 
+        RowBox[{"NumDriverPat", "=", "50"}], ",", 
+        RowBox[{"muJ", "=", "0.05"}], ",", 
+        RowBox[{"muA", "=", "0.125"}], ",", 
+        RowBox[{"d", "=", "0.001"}], ",", 
+        RowBox[{"gammaF", "=", "0.025"}], ",", 
+        RowBox[{"beta", "=", "100"}], ",", 
+        RowBox[{"theta", "=", "9"}], ",", 
+        RowBox[{"\[Xi]", "=", "0.35"}], ",", 
+        RowBox[{"ef", "=", "0.95"}], ",", 
+        RowBox[{"LD", "=", 
+         RowBox[{"10", "/", "111."}]}], ",", 
+        RowBox[{"psi", "=", "0"}], ",", 
+        RowBox[{"muAES", "=", "0.9"}], ",", 
+        RowBox[{"thide1", "=", "300"}], ",", 
+        RowBox[{"thide2", "=", "350"}], ",", 
+        RowBox[{"twake1", "=", "140"}], ",", 
+        RowBox[{"twake2", "=", "170"}], ",", "\[Alpha]0", ",", "\[Alpha]1", 
+        ",", "\[Alpha]2", ",", "\[Phi]", ",", "\[Delta]", ",", "\[Kappa]", 
+        ",", 
+        RowBox[{"al0var", "=", "0"}], ",", 
+        RowBox[{"omega", "=", "100"}], ",", 
+        RowBox[{"rainfile", "=", 
+         RowBox[{"\"\<../RainFiles/MeanRainSq\>\"", "<>", 
+          RowBox[{"ToString", "[", "sq", "]"}], "<>", "\"\<.csv\>\""}]}], ",", 
+        RowBox[{"mortfile", "=", 
+         RowBox[{
+          RowBox[{"Which", "[", 
+           RowBox[{
+            RowBox[{"sp", "==", "\"\<g\>\""}], ",", 
+            "\"\<../MuFiles/gamb_mortality\>\"", ",", 
+            RowBox[{"sp", "==", "\"\<a\>\""}], ",", 
+            "\"\<../MuFiles/arab_mortality\>\"", ",", 
+            RowBox[{"sp", "==", "\"\<f\>\""}], ",", 
+            "\"\<../MuFiles/fun_mortality\>\""}], "]"}], "<>", 
+          RowBox[{"ToString", "[", "sq", "]"}], "<>", "\"\<.csv\>\""}]}], ",", 
+        RowBox[{"species", "=", "sp"}], ",", 
+        RowBox[{"meanTL", "=", "15"}], ",", 
+        RowBox[{"EDGEd", "=", "0.0000001"}], ",", 
+        RowBox[{"singlepop", "=", "0"}], ",", 
+        RowBox[{"LarvProbs", "=", 
+         RowBox[{"Join", "[", 
+          RowBox[{
+           RowBox[{"ConstantArray", "[", 
+            RowBox[{"0", ",", "10"}], "]"}], ",", 
+           RowBox[{"ConstantArray", "[", 
+            RowBox[{"0.1", ",", "10"}], "]"}]}], "]"}]}]}], "}"}], "]"}]}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.8836399267804337`*^9, 3.883640020709518*^9}, {
+   3.883640057034265*^9, 3.883640106202368*^9}, {3.8836401388250933`*^9, 
+   3.883640254279269*^9}, 3.8836403052257967`*^9, {3.8836403389729*^9, 
+   3.8836403615975437`*^9}, {3.8836404294742393`*^9, 
+   3.8836404363448277`*^9}},ExpressionUUID->"25604fc6-7c67-4455-9056-\
+c68acf42f521"],
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{"\"\<Par\>\"", "<>", 
+    RowBox[{"ToString", "[", "set", "]"}], "<>", "\"\<.csv\>\""}], ",", "pa", 
+   ",", "\"\<CSV\>\"", ",", 
+   RowBox[{"\"\<TextDelimiters\>\"", "\[Rule]", "\"\<\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.8836399267804337`*^9, 
+  3.8836399702472057`*^9}},ExpressionUUID->"aeec1c0a-964f-46b5-a0d4-\
+11b0f3e4ce65"]
+},
+WindowSize->{1440., 741.75},
+WindowMargins->{{0, Automatic}, {4.5, Automatic}},
+Magnification:>1.4 Inherited,
+FrontEndVersion->"13.0 for Linux x86 (64-bit) (December 2, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f95b10b1-edab-47b6-9a73-66b81645257e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4589, 104, 391, "Input",ExpressionUUID->"25604fc6-7c67-4455-9056-c68acf42f521"],
+Cell[5150, 126, 404, 10, 41, "Input",ExpressionUUID->"aeec1c0a-964f-46b5-a0d4-11b0f3e4ce65"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
