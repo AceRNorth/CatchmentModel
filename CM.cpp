@@ -424,33 +424,6 @@ cout<<relpat<<endl;
 	void UpdateConnec()
 	{
 	double dd,ww,cor;
-	if(pa.kernel==-1)
-	{
-	cor=((pa.dispb-2)*(pa.dispb-1)*(pa.dispa*pa.dispa-(pa.dispa+pa.LD)*std::pow((pa.dispa+pa.LD)/pa.dispa,-1*pa.dispb)*(pa.dispa+(pa.dispb-1)*pa.LD)))/(pa.dispa*pa.dispa*(2-3*pa.dispb+pa.dispb*pa.dispb));
-	//cor=(std::pow((pa.disp_a + pa.LD)/ pa.disp_a),-1*pa.disp_b)* (-pa.disp_a*pa.disp_b*pa.LD - (-1 + pa.disp_b)*pa.LD^2 + pa.disp_a^2 (-1 + ((pa.disp_a + pa.LD)/pa.disp_a)^pa.disp_b)))/pa.disp_a^2;
-	for(int index=0;index<Site.size();index++)
-	{
-		Site[index].connecIND.clear();
-		Site[index].connecW.clear();
-		Site[index].TotW=0;
-		for(int ii=0;ii<Site.size();ii++)
-			{
-				dd=dist(Site[index].x,Site[index].y,Site[ii].x,Site[ii].y);
-				if(dd<pa.LD)
-				{
-					Site[index].connecIND.push_back(ii); 
-					//ww=((((pa.disp_a - 1)*(pa.disp_b - 2)/(2*Pi*pa.disp_a^2)) (1 + dd/pa.disp_a)^-pa.disp_b))/cor;
-					ww=((((pa.dispb - 1)*(pa.dispb - 2)/(2*PI*std::pow(pa.dispa,2)))*std::pow(1 + dd/pa.dispa,-1*pa.dispb)))/cor;
-					Site[index].connecW.push_back(ww); 
-					Site[index].TotW+=ww;
-				};
-			};
-		//	cout<<Site[index].connecIND.size()<<"   "<<Site[index].TotW<<endl;
-
-	};
-	};
-	if(pa.kernel==0)
-	{
 	for(int index=0;index<Site.size();index++)
 	{
 		Site[index].connecIND.clear();
@@ -472,7 +445,6 @@ cout<<relpat<<endl;
 			};
 		//	cout<<Site[index].connecIND.size()<<"   "<<Site[index].TotW<<endl;
 
-	};
 	};
 	for(int i=0;i<Site.size();i++)
 	{
@@ -652,8 +624,8 @@ cout<<relpat<<endl;
 		{
 		for(pat=0;pat<Site.size();pat++)
 			{
-		if(pa.kernel==-1) { pdisperse=pa.d*(1-exp(-1*Site[pat].TotW)); };
-		if(pa.kernel==0) { pdisperse=pa.d*(1-exp(-1*Site[pat].TotW)); };
+		//pdisperse=pa.d*(1-exp(-1*Site[pat].TotW)); 
+		pdisperse=pa.d; 
 //cout<<"pdisp  "<<pdisperse<<"     "<<Site[pat].area<<endl;
 				for(int i=0;i<NumGen;i++)
 				{
