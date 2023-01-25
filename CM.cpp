@@ -1,4 +1,4 @@
-#include "headCMBothMovement.h"
+#include "head.h"
 
 	/*--------------------------------------global variables----------------------------------*/
 	/*----------------------------------------------------------------------------------------*/
@@ -49,8 +49,7 @@
 		cin>>pa.muJ;//juvenile density independent mortality per day
 		cin>>pa.muA;//adult mortality per day
 		cin>>pa.d;//adult dispersal rate
-		cin>>pa.gamma;//rate of r2 allele formation from W/D meiosis in females
-		cin>>pa.Mgamma;//rate of r2 allele formation from W/D meiosis in males
+		cin>>pa.gamma;//rate of r2 allele formation from W/D meiosis in males
 		cin>>pa.beta;//parameter that controls mating rate
 		cin>>pa.theta;//egg laying rate of wildtype females (eggs per day)
 		cin>>pa.xi;// somatic Cas9 expression fitness cost
@@ -73,12 +72,10 @@
 		cin>>pa.omega;//human density at which further increases do not increase carrying capacity
 		cin>>in.rainfile;// rain data input file
 		cin>>in.mortfile;// mortality data input file
-		cin>>pa.bias;// male proportion in progeney of males carrying drive allele
 //		cin>>pa.k;//
 //		cin>>pa.epochs;//
 //		cin>>pa.compress; //if rand=1, compression level is set at random
 		cin>>pa.species;
-		cin>>pa.kernel;
 		cin>>pa.meanTL;
 		cin>>pa.s;
 		cin>>pa.EDGEd;
@@ -88,7 +85,6 @@
 
 		pa.dispa=0.5;pa.dispb=15;
 
-//		cout<<pa.bias<<endl;
 	/*----------------------------------------------------------------------------------------*/
 	/*---------------------set mean and variance of local permanent water--------------------------------*/
 		if(pa.alpha0>0)
