@@ -558,6 +558,7 @@ cout<<relpat<<endl;
 
 	void JuvGetOlder(void){
 		long int jtSitesch,jtAllAll;
+		jtAllAll=0;
 		long int jtAll[NumGen];
 		for(int i=0;i<NumGen;i++) { jtAll[i]=0; };
 		double pcomp;
