@@ -219,21 +219,20 @@
 					};
 				};
 //		cout<<"B"<<endl;
+			cout<<to.Em[0]+to.Em[1]+to.Em[3]<<endl;
 			if(TT%ti.interval==0)
 				{
-			//	cout<<TT<<"   "<<ti.yearnow<<"    "<<to.Jww<<"     "<<to.Jwd<<"     "<<to.Jdd<<"     "<<to.Jwr<<"     "<<to.Jrr<<"     "<<to.Jdr<<"   "<<to.Mww<<"     "<<to.Mwd<<"     "<<to.Mdd<<"     "<<to.Mwr<<"     "<<to.Mrr<<"     "<<to.Mdr<<"  "<<to.Vww<<"     "<<to.Vwd<<"     "<<to.Vdd<<"     "<<to.Vwr<<"     "<<to.Vrr<<"     "<<to.Vdr<<"  "<<to.Fww<<"     "<<to.Fwd<<"     "<<to.Fdd<<"     "<<to.Fwr<<"     "<<to.Frr<<"     "<<to.Fdr<<"    "<<to.distW<<"    "<<to.distD<<"   "<<to.distR<<endl;
-				cout<<TT;
-				for(int i=0;i<NumGen;i++)cout<<"     "<<to.Em[i];
-				cout<<endl;
-				//globalinfo<<TT<<"   "<<to.Fww<<"     "<<to.Fwd<<"     "<<to.Fdd<<"     "<<to.Fwr<<"     "<<to.Frr<<"     "<<to.Fdr<<endl;
-			for(int i=0;i<NumGen;i++)to.CentF[i]=0;
-	for(int pat=0;pat<Site.size();pat++)
-		{
-		if(Site[pat].CentSq==1)
-			{
-			for(int i=0;i<NumGen;i++)to.CentF[i]+=accumulate(Site[pat].F[i],Site[pat].F[i]+NumGen,0);
-			};
-		};
+				//cout<<TT;
+				//for(int i=0;i<NumGen;i++)cout<<"     "<<to.Em[i];
+				//cout<<endl;
+				for(int i=0;i<NumGen;i++)to.CentF[i]=0;
+				for(int pat=0;pat<Site.size();pat++)
+					{
+					if(Site[pat].CentSq==1)
+						{
+						for(int i=0;i<NumGen;i++)to.CentF[i]+=accumulate(Site[pat].F[i],Site[pat].F[i]+NumGen,0);
+						};
+					};
 				globalinfo<<TT;
 				for(int i=0;i<NumGen;i++)globalinfo<<"     "<<to.CentF[i];
 				globalinfo<<endl;
