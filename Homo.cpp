@@ -534,7 +534,8 @@
 		for(pat=0;pat<Site.size();pat++)
 			{
 		if(pa.kernel==-1) { pdisperse=pa.d*(1-exp(-1*Site[pat].TotW)); };
-		if(pa.kernel==0) { pdisperse=pa.d*(1-exp(-1*Site[pat].TotW)); };
+		//if(pa.kernel==0) { pdisperse=pa.d*(1-exp(-1*Site[pat].TotW)); };
+		if(pa.kernel==0) { pdisperse=pa.d; };
 //cout<<"pdisp  "<<pdisperse<<"     "<<Site[pat].area<<endl;
 				for(int i=0;i<NumGen;i++)
 				{
