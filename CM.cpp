@@ -235,7 +235,7 @@
 					};
 				globalinfo<<TT;
 				for(int i=0;i<NumGen;i++)globalinfo<<"     "<<to.CentF[i];
-				globalinfo<<endl;
+				globalinfo<<"    "<<to.distD<<endl;
 				};
 			TT++;
 
